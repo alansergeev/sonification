@@ -3,120 +3,220 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A colourful little blog about ideas, creativity, and everyday adventures.">
-  <title>Bright Notes — A Colourful Little Blog</title>
+  <meta name="description" content="Interactive Cantor-set and Shepard-glide sonification studies.">
+  <title>Fractal Audio Studies</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="logo" href="#top" aria-label="Bright Notes home">
-      <span class="logo-dot" aria-hidden="true"></span>
-      Bright Notes
-    </a>
-
+  <header class="site-header" id="top">
+    <a class="brand" href="#top"><span>F</span> / AUDIO STUDIES</a>
     <nav aria-label="Main navigation">
-      <a href="#stories">Stories</a>
-      <a href="#about">About</a>
+      <a href="#cantor-build">Cantor build</a>
+      <a href="#cantor-final">Cantor instrument</a>
+      <a href="#shepard">Shepard glide</a>
     </nav>
   </header>
 
-  <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow">A small corner of the internet</p>
-        <h1 id="hero-title">Ideas, adventures &amp; colourful moments.</h1>
-        <p class="hero-text">A cheerful journal about finding inspiration in ordinary days.</p>
-        <a class="button" href="#stories">Read the latest</a>
+  <main>
+    <section class="opening copy-grid">
+      <p class="eyebrow">Two recursive systems · made audible</p>
+      <h1>Structures that repeat,<br><span>sounds that never settle.</span></h1>
+      <p class="intro-copy">These studies turn two mathematical ideas into instruments. First, the Cantor set removes the middle third of every surviving interval. Then a Shepard spectrum folds a descending family of partials back into itself. Each diagram is driven by the same values as its sound.</p>
+    </section>
+
+    <section class="build-section" id="cantor-build" aria-labelledby="build-title">
+      <div class="section-heading copy-grid">
+        <p class="eyebrow">01 / The Cantor set, one iteration at a time</p>
+        <h2 id="build-title">Hear the set disappear.</h2>
+        <p>Begin with a whole interval. Divide it into thirds, retain the outer two, and remove the middle. Each recording adds one more depth to the same process. Cyan shows the thirds that continue; magenta shows the thirds removed at that depth. Both are sonified by one shared voice system—neither receives special treatment.</p>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <span class="shape shape-one"></span>
-        <span class="shape shape-two"></span>
-        <span class="shape shape-three"></span>
-        <span class="spark">✦</span>
-        <span class="smile">:)</span>
+
+      <div class="iteration-stack">
+        <article class="iteration-row">
+          <div class="iteration-text"><span>ITERATION 01</span><strong>The whole interval</strong><p>One band and one pitch establish the scale of the demonstration.</p></div>
+          <svg class="cantor-mini" data-depth="1" role="img" aria-label="Cantor set iteration one"></svg>
+          <audio controls preload="metadata" src="audio/cantor-iteration-1.wav">Audio is unavailable.</audio>
+        </article>
+        <p class="bridge-copy">The first cut creates three equal events. The outer thirds survive, but all three are heard with identical synthesis settings.</p>
+
+        <article class="iteration-row">
+          <div class="iteration-text"><span>ITERATION 02</span><strong>The first removal</strong><p>The middle third becomes visible as absence while the two edges continue.</p></div>
+          <svg class="cantor-mini" data-depth="2" role="img" aria-label="Cantor set iteration two"></svg>
+          <audio controls preload="metadata" src="audio/cantor-iteration-2.wav">Audio is unavailable.</audio>
+        </article>
+        <p class="bridge-copy">Two intervals become six events, and the gaps begin to establish a rhythm.</p>
+
+        <article class="iteration-row">
+          <div class="iteration-text"><span>ITERATION 03</span><strong>Recursion becomes rhythm</strong><p>Each surviving edge now performs the same three-way decision.</p></div>
+          <svg class="cantor-mini" data-depth="3" role="img" aria-label="Cantor set iteration three"></svg>
+          <audio controls preload="metadata" src="audio/cantor-iteration-3.wav">Audio is unavailable.</audio>
+        </article>
+        <p class="bridge-copy">As the intervals shrink, pitch rises. The rule does not change; only its scale does.</p>
+
+        <article class="iteration-row">
+          <div class="iteration-text"><span>ITERATION 04</span><strong>A lattice of thirds</strong><p>The pattern is still countable, but it is beginning to read as texture.</p></div>
+          <svg class="cantor-mini" data-depth="4" role="img" aria-label="Cantor set iteration four"></svg>
+          <audio controls preload="metadata" src="audio/cantor-iteration-4.wav">Audio is unavailable.</audio>
+        </article>
+        <p class="bridge-copy">More silence enters the picture, even as the number of sounding decisions grows.</p>
+
+        <article class="iteration-row">
+          <div class="iteration-text"><span>ITERATION 05</span><strong>Approaching the dust</strong><p>Fine repetitions collect at the edge of visual and audible resolution.</p></div>
+          <svg class="cantor-mini" data-depth="5" role="img" aria-label="Cantor set iteration five"></svg>
+          <audio controls preload="metadata" src="audio/cantor-iteration-5.wav">Audio is unavailable.</audio>
+        </article>
       </div>
     </section>
 
-    <section class="posts" id="stories" aria-labelledby="stories-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Fresh from the journal</p>
-          <h2 id="stories-title">Latest stories</h2>
+    <section class="instrument-section" id="cantor-final" aria-labelledby="cantor-title">
+      <div class="instrument-title">
+        <p>THE <span>CANTOR</span> SET — AUDIBLE</p>
+        <small>All iterations combined · live parameters</small>
+      </div>
+
+      <div class="panel cantor-panel">
+        <svg id="cantor-visual" class="cantor-visual" role="img" aria-label="Interactive six-depth Cantor set"></svg>
+
+        <div class="control-section-label">SHARED</div>
+        <div class="control-grid shared-controls">
+          <label class="control" for="cantor-frequency">
+            <span>BASE FREQ <output id="cantor-frequency-value">140 HZ</output></span>
+            <input id="cantor-frequency" type="range" min="70" max="280" value="140">
+          </label>
+          <label class="control" for="cantor-depth">
+            <span>DEPTH <output id="cantor-depth-value">6</output></span>
+            <input id="cantor-depth" type="range" min="1" max="9" value="6" aria-describedby="cantor-depth-note">
+            <small id="cantor-depth-note">1–9 levels · default 6</small>
+          </label>
+          <label class="control" for="cantor-climb">
+            <span>PITCH CLIMB / LVL <output id="cantor-climb-value">1.50×</output></span>
+            <input id="cantor-climb" type="range" min="1" max="2" step="0.01" value="1.5">
+          </label>
+          <label class="control" for="cantor-duration">
+            <span>DURATION <output id="cantor-duration-value">5.0 S</output></span>
+            <input id="cantor-duration" type="range" min="2" max="10" step="0.1" value="5">
+          </label>
+          <label class="control" for="cantor-sustain">
+            <span>SUSTAIN <output id="cantor-sustain-value">0%</output></span>
+            <input id="cantor-sustain" type="range" min="0" max="100" value="0">
+          </label>
         </div>
-        <span class="scribble" aria-hidden="true">〰</span>
+
+        <div class="voice-card unified-voice">
+          <p><i></i> ALL THIRDS — ONE SHARED VOICE</p>
+          <div class="voice-controls">
+            <label class="control" for="cantor-volume">
+              <span>VOLUME <output id="cantor-volume-value">72%</output></span>
+              <input id="cantor-volume" type="range" min="0" max="100" value="72">
+            </label>
+            <label class="select-control" for="cantor-waveform">
+              <span>WAVEFORM</span>
+              <select id="cantor-waveform"><option value="triangle">triangle</option><option value="sine">sine</option><option value="square">square</option><option value="sawtooth">sawtooth</option></select>
+            </label>
+          </div>
+          <small>Cyan survivors and magenta removals use exactly the same volume and waveform.</small>
+        </div>
+
+        <button class="cantor-play primary-button" id="cantor-play" type="button" aria-pressed="false"><span>▶</span> PLAY CURRENT SET</button>
+
+        <div class="reference-audio">
+          <div><span>REFERENCE RENDER</span><strong>Iteration 06 · final combined set</strong></div>
+          <audio controls preload="metadata" src="audio/cantor-iteration-6-final.wav">Audio is unavailable.</audio>
+        </div>
       </div>
 
-      <div class="post-grid">
-        <article class="post-card card-yellow">
-          <div class="card-visual visual-sun" aria-hidden="true">
-            <span>☀</span>
-          </div>
-          <div class="card-content">
-            <p class="post-meta">July 18 · 4 min read</p>
-            <h3><a href="#stories">How to make mornings feel a little brighter</a></h3>
-            <p>Five tiny rituals that bring more calm, colour, and good energy to the start of your day.</p>
-            <a class="read-more" href="#stories" aria-label="Read How to make mornings feel a little brighter">Read story <span>→</span></a>
-          </div>
-        </article>
-
-        <article class="post-card card-purple">
-          <div class="card-visual visual-flowers" aria-hidden="true">
-            <span>✿</span><span>✿</span><span>✿</span>
-          </div>
-          <div class="card-content">
-            <p class="post-meta">July 10 · 3 min read</p>
-            <h3><a href="#stories">The gentle art of noticing things</a></h3>
-            <p>A pocket-sized reminder to slow down and pay attention to the lovely details around you.</p>
-            <a class="read-more" href="#stories" aria-label="Read The gentle art of noticing things">Read story <span>→</span></a>
-          </div>
-        </article>
-
-        <article class="post-card card-blue">
-          <div class="card-visual visual-waves" aria-hidden="true">
-            <span>≈</span><span>≈</span><span>≈</span>
-          </div>
-          <div class="card-content">
-            <p class="post-meta">June 29 · 5 min read</p>
-            <h3><a href="#stories">A weekend with nowhere to be</a></h3>
-            <p>What happened when I left my plans behind and followed curiosity for two whole days.</p>
-            <a class="read-more" href="#stories" aria-label="Read A weekend with nowhere to be">Read story <span>→</span></a>
-          </div>
-        </article>
+      <div class="below-copy copy-grid">
+        <p>Every solid bar is split into equal thirds. The outer thirds continue into the next row; the middle third ends there. That geometric difference is visible in colour, but it does not create a second synthesiser. A single gain, waveform, and scheduling rule handles every segment.</p>
       </div>
     </section>
 
-    <section class="about" id="about" aria-labelledby="about-title">
-      <div class="portrait" aria-hidden="true">
-        <div class="portrait-face">☺</div>
+    <section class="shepard-section" id="shepard" aria-labelledby="shepard-title">
+      <div class="section-heading copy-grid shepard-intro">
+        <p class="eyebrow orange">02 / A spectrum with no apparent floor</p>
+        <h2 id="shepard-title">The line descends.<br>The spectrum returns.</h2>
+        <p>A Shepard glide stacks related partials across a frequency-pinned window. As components approach the edge they fade, while counterparts enter at the other side. The ear follows motion through a spectrum that continuously rebuilds itself.</p>
       </div>
-      <div class="about-copy">
-        <p class="eyebrow">Hello there!</p>
-        <h2 id="about-title">I’m Alex, a collector of small joys.</h2>
-        <p>I write about creativity, slow living, and the surprising adventures hidden inside ordinary days. Make yourself at home.</p>
-        <a class="text-link" href="mailto:hello@example.com">Say hello →</a>
-      </div>
-    </section>
 
-    <section class="newsletter" aria-labelledby="newsletter-title">
-      <div>
-        <p class="eyebrow">A little sunshine for your inbox</p>
-        <h2 id="newsletter-title">Never miss a story.</h2>
+      <div class="shepard-build" aria-labelledby="shepard-build-title">
+        <div class="build-label">
+          <span>BUILDING W(T)</span>
+          <h3 id="shepard-build-title">Three ingredients,<br>one continuous illusion.</h3>
+        </div>
+
+        <article class="shepard-step">
+          <div class="step-number">01</div>
+          <div class="step-copy"><span>THE ANCHOR</span><strong>Begin with one partial.</strong><p>A single sine tone gives the spectrum a definite location and the ear a stable reference.</p></div>
+          <canvas class="shepard-mini" data-stage="1" width="700" height="190" aria-label="One spectral partial"></canvas>
+          <audio controls preload="metadata" src="audio/shepard-step-1.wav">Audio is unavailable.</audio>
+        </article>
+
+        <article class="shepard-step">
+          <div class="step-number">02</div>
+          <div class="step-copy"><span>THE LADDER</span><strong>Repeat by ratio b.</strong><p>Copies appear at geometric frequency intervals while their amplitude falls by ratio a.</p></div>
+          <canvas class="shepard-mini" data-stage="2" width="700" height="190" aria-label="A geometric ladder of spectral partials"></canvas>
+          <audio controls preload="metadata" src="audio/shepard-step-2.wav">Audio is unavailable.</audio>
+        </article>
+
+        <article class="shepard-step">
+          <div class="step-number">03</div>
+          <div class="step-copy"><span>THE WINDOW</span><strong>Fade the spectral edges.</strong><p>A taper hides the hand-off as partials leave one edge and their relatives enter at the other.</p></div>
+          <canvas class="shepard-mini" data-stage="3" width="700" height="190" aria-label="A tapered spectrum of partials"></canvas>
+          <audio controls preload="metadata" src="audio/shepard-step-3.wav">Audio is unavailable.</audio>
+        </article>
+
+        <p class="shepard-transition">With the anchor, ladder, and window in place, the final instrument can move the entire family as one continuously rebuilding spectrum.</p>
       </div>
-      <form action="#" method="post">
-        <label class="sr-only" for="email">Email address</label>
-        <input id="email" name="email" type="email" placeholder="your@email.com" required>
-        <button type="submit">Join the list</button>
-      </form>
+
+      <div class="shepard-heading">
+        <h3><span>W(t)</span> · Shepard glide</h3>
+        <p>An audible Weierstrass function. Partials sit at ratio b in geometric decay a; a frequency-pinned window lets the whole spectrum descend while reconstructing itself every factor of b.</p>
+      </div>
+
+      <div class="shepard-panel">
+        <div class="graph-card waveform-card">
+          <span class="graph-label">W(T) · WAVEFORM</span>
+          <canvas id="waveform-canvas" width="1400" height="330" aria-label="Shepard waveform"></canvas>
+        </div>
+        <div class="graph-card spectrum-card">
+          <span class="graph-label">LOG-FREQUENCY SPECTRUM</span>
+          <canvas id="spectrum-canvas" width="1400" height="330" aria-label="Log-frequency spectrum"></canvas>
+        </div>
+
+        <div class="metric-grid">
+          <div><span>SLOPE β</span><strong id="metric-slope">0.47</strong></div>
+          <div><span>PER OCTAVE</span><strong id="metric-octave">−2.9 dB</strong></div>
+          <div><span>BOX DIM D</span><strong id="metric-dimension">1.526</strong></div>
+          <div><span>A·B REGIME</span><strong class="orange-text" id="metric-regime">1.44 ✓</strong></div>
+          <div><span>BAND TOP</span><strong class="pink-text" id="metric-band">20.5 k <i>Hz</i></strong></div>
+          <div><span>φ SHIFT</span><strong id="metric-phase">0.000</strong></div>
+        </div>
+
+        <div class="shepard-controls">
+          <label class="control" for="shepard-a"><span><b>a</b> amplitude ratio <output id="shepard-a-value">0.72</output></span><input id="shepard-a" type="range" min="0.5" max="0.9" step="0.01" value="0.72"></label>
+          <label class="control" for="shepard-b"><span><b>b</b> frequency ratio <output id="shepard-b-value">2.00</output></span><input id="shepard-b" type="range" min="1.5" max="3" step="0.01" value="2"></label>
+          <label class="control" for="shepard-f0"><span><b>f₀</b> band bottom <output id="shepard-f0-value">10 Hz</output></span><input id="shepard-f0" type="range" min="10" max="80" value="10"></label>
+          <label class="control" for="shepard-n"><span><b>N</b> partials / slots <output id="shepard-n-value">11</output></span><input id="shepard-n" type="range" min="5" max="14" value="11"></label>
+          <label class="control" for="shepard-glide"><span><b>glide</b> ratios · s⁻¹ <output id="shepard-glide-value">−0.15</output></span><input id="shepard-glide" type="range" min="-0.5" max="0.5" step="0.01" value="-0.15"></label>
+          <label class="control" for="shepard-taper"><span><b>taper</b> edge fade <output id="shepard-taper-value">0.20</output></span><input id="shepard-taper" type="range" min="0.05" max="0.5" step="0.01" value="0.2"></label>
+          <label class="control" for="shepard-level"><span><b>level</b> output <output id="shepard-level-value">0.55</output></span><input id="shepard-level" type="range" min="0" max="0.9" step="0.01" value="0.55"></label>
+          <label class="phase-switch" for="phase-enabled"><span><b>φ shift</b> manual offset<small>Enable to interact</small></span><input id="phase-enabled" type="checkbox"><i aria-hidden="true"></i></label>
+          <label class="control phase-control" for="phase-shift"><span><b>φ</b> spectral shift <output id="phase-shift-value">0.000</output></span><input id="phase-shift" type="range" min="0" max="1" step="0.001" value="0" disabled></label>
+        </div>
+
+        <div class="shepard-actions">
+          <button id="compensation-mode" class="mode-button active" type="button" aria-pressed="true">aⁿ: compensated (level)</button>
+          <button id="shepard-play" class="mode-button" type="button" aria-pressed="false">Start</button>
+        </div>
+      </div>
+
+      <div class="below-copy copy-grid">
+        <p>Compensated mode scales the coefficients so the audible band holds a stationary level across the spectrum. The φ control is deliberately manual: switch it on, then move the spectral offset yourself. Nothing slides in the background and the diagram always shows the exact state being heard.</p>
+        <p class="technical-note">Audio starts only after a button press. Keep your listening level comfortable, especially when several partials align.</p>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>© 2026 Bright Notes. Made with colour &amp; curiosity.</p>
-    <div class="social-links">
-      <a href="#top">Instagram</a>
-      <a href="#top">Pinterest</a>
-      <a href="#top">RSS</a>
-    </div>
-  </footer>
+  <footer><span>FRACTAL AUDIO STUDIES · 2026</span><a href="#top">BACK TO TOP ↑</a></footer>
+  <script src="script.js"></script>
 </body>
 </html>
